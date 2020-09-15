@@ -1,11 +1,17 @@
 package com.ploma.dspesquisa.dto;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import com.ploma.dspesquisa.entities.Record;
 import com.ploma.dspesquisa.entities.enuns.Platform;
 
-public class RecordDTO {
+public class RecordDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String name;
