@@ -5,6 +5,7 @@ import java.time.Instant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,9 +49,9 @@ public class RecordResource {
 			linesPerPage = Integer.MAX_VALUE;
 		}
 
-		//PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.DESC, orderBy);
+		
 		System.out.println("Direction: "+direction);
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage,  Direction.DESC, orderBy);
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage,  Direction.valueOf(direction.trim()), orderBy);
 
 		Page<RecordDTO> list = service.findByMoments(minDate, maxDate, pageRequest);
 		return ResponseEntity.ok().body(list);
