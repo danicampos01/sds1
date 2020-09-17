@@ -3,6 +3,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Records from './Records/index';
+import Charts from './pages/Charts/index';
+
 
 const Routes = () => (
 
@@ -14,6 +16,9 @@ const Routes = () => (
         </Route>
         <Route path="/records">
             <Records/>
+        </Route>
+        <Route path="/charts">
+            <Charts/>
         </Route>
     </Switch>
     </BrowserRouter>
